@@ -27,10 +27,31 @@ app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
 }]);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise("/main/phones");
     $stateProvider
-    .state("phones", {
+    // .state("phones", {
+    //     url: "/phones",
+    //     templateUrl: "model/phone-list.html",
+    //     resolve: {
+    //         deps: ['$ocLazyLoad',
+    //             function ($ocLazyLoad) {
+    //                 return $ocLazyLoad.load(['js/controllers/mobile_controller.js'], {cache: false});
+    //             }
+    //         ]
+    //     }
+    // })
+    .state("main", {
+        url: "/main",
+        templateUrl: "model/main.html"
+    })
+    .state("main.phones", {
         url: "/phones",
-        templateUrl: "model/phone-list.html",
+        views: {
+            "mainview": {
+                templateUrl: "model/phone-list.html",
+            }
+        },
+        // templateUrl: "model/phone-list.html",
         resolve: {
             deps: ['$ocLazyLoad',
                 function ($ocLazyLoad) {

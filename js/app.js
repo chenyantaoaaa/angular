@@ -1,22 +1,5 @@
-// var phonecatApp = angular.module('phonecatApp', [
-//     'ngRoute',
-//     'phonecatControllers'
-//   ]);
-
-// phonecatApp.config(['$routeProvider',
-// function($routeProvider) {
-//     $routeProvider.
-//         when('/phones', {
-//             templateUrl: 'phones/phone-list.html',
-//             controller: 'PhoneListCtrl'
-//         }).
-//         otherwise({
-//             redirectTo: '/phones'
-//         });
-// }]);
-
-var app = angular.module('phonecatApp',["ui.router","oc.lazyLoad"]);
-
+var app = angular.module('phonecatApp',["ui.router","oc.lazyLoad","myservice"]);
+ 
 app.config(
     ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
         function ($controllerProvider, $compileProvider, $filterProvider, $provide) {

@@ -1,4 +1,4 @@
-app.controller('PhoneListCtrl', function ($scope,$http) {
+app.controller('PhoneListCtrl', function ($scope,$http,myService) {
   // $scope.phones = [
   //   {'name': 'Nexus S',
   //    'snippet': 'Fast just got faster with Nexus S.',
@@ -21,6 +21,7 @@ app.controller('PhoneListCtrl', function ($scope,$http) {
   $scope.orderProp = 'age';
 
   $scope.aler = function(){
-    alert(123);
+    var x = "h h h h h h h";
+    alert(myService.num);
   }
 });

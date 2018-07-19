@@ -1,5 +1,5 @@
 var app = angular.module('phonecatApp',["ui.router","oc.lazyLoad","myservice"])
-.constant('_', window._)
+.constant('_', window._)//lodash全局变量
 // use in views, ng-repeat="x in _.range(3)"
 .run(function ($rootScope) {
    $rootScope._ = window._;
@@ -8,7 +8,7 @@ var app = angular.module('phonecatApp',["ui.router","oc.lazyLoad","myservice"])
 app.config(
     ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
         function ($controllerProvider, $compileProvider, $filterProvider, $provide) {
-            app.controller = $controllerProvider.register;
+            app.controller = $controllerProvider.register;//注册controller 将模板对应的js注册
             app.directive = $compileProvider.directive;
             app.filter = $filterProvider.register;
             app.factory = $provide.factory;
@@ -19,7 +19,7 @@ app.config(
     ]
 );
 
-app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {
+app.config(['$ocLazyLoadProvider', function ($ocLazyLoadProvider) {//懒加载
     $ocLazyLoadProvider.config({
         debug: true,
         events: true
@@ -44,10 +44,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url: "/main",
         templateUrl: "model/main.html"
     })
-    .state("main.phones", {
+    .state("main.phones", {//父页面.子页面
         url: "/phones",
         views: {
-            "mainview": {
+            "mainview": {//这里的名字对应到 ui-view=""中的名字
                 templateUrl: "model/phone-list.html",
             }
         },

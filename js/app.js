@@ -1,4 +1,9 @@
-var app = angular.module('phonecatApp',["ui.router","oc.lazyLoad","myservice"]);
+var app = angular.module('phonecatApp',["ui.router","oc.lazyLoad","myservice"])
+.constant('_', window._)
+// use in views, ng-repeat="x in _.range(3)"
+.run(function ($rootScope) {
+   $rootScope._ = window._;
+});
  
 app.config(
     ['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
